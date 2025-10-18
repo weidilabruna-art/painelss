@@ -681,56 +681,53 @@
 
   <script src="js/app.js" defer></script>
   
- <!-- Anti-inspecionar / Anti-copiar (mitigação, não infalível) -->
+ <!-- Anti-inspecionar / Anti-copiar (versão segura para mobile) -->
 <script>
 (function () {
   const stop = (e) => { e.preventDefault(); e.stopPropagation(); return false; };
 
-  // Bloqueia menu do botão direito e long-press (mobile)
+  // 1) Bloqueia menu do botão direito e long-press menu padrão
   window.addEventListener('contextmenu', stop, true);
 
-  // Bloqueia combos comuns: F12, Ctrl+U/S/P, Ctrl+Shift+I/J/C/K
+  // 2) Bloqueia combos comuns no desktop (não interfere no mobile)
   window.addEventListener('keydown', function (e) {
     const k = e.key;
     const ctrl = e.ctrlKey || e.metaKey;
     if (
       k === 'F12' ||
-      (ctrl && ['u','s','p'].includes(k.toLowerCase())) ||
-      (ctrl && e.shiftKey && ['i','j','c','k'].includes(k.toLowerCase()))
+      (ctrl && ['u','s','p'].includes((k||'').toLowerCase())) ||
+      (ctrl && e.shiftKey && ['i','j','c','k'].includes((k||'').toLowerCase()))
     ) stop(e);
   }, true);
 
-  // Desabilita arrastar e clique longo em imagens (não afeta botões/link normais)
+  // 3) Imagens: desabilita arrastar e clique direito, sem bloquear toques/rolagem
   document.querySelectorAll('img:not([data-clickable])').forEach(img => {
-    img.setAttribute('draggable','false');
+    img.setAttribute('draggable', 'false');
     img.addEventListener('dragstart', stop, true);
-    img.addEventListener('mousedown', stop, true);
-    img.addEventListener('touchstart', stop, { capture:true, passive:false });
+    img.addEventListener('contextmenu', stop, true);
+    // IMPORTANTE: sem 'touchstart' aqui para não travar toques no mobile
   });
 
-  // Heurística simples: se DevTools abre (janela "estranha"), recarrega/limpa
-  // (comente esta parte se não quiser esse comportamento)
-  const guard = setInterval(() => {
-    const w = window.outerWidth - window.innerWidth > 160;
-    const h = window.outerHeight - window.innerHeight > 160;
-    if (w || h) {
-      // Opção 1: recarregar
-      // location.reload();
-      // Opção 2: redirecionar
-      // location.href = '/';
-      // Opção 3: "apagar" a página
-      document.documentElement.innerHTML = '';
-    }
-  }, 1000);
+  // ⚠️ REMOVIDO: heurística que apagava a página quando DevTools abre
+  // (era isso que poderia derrubar o site no mobile)
 })();
 </script>
 
-<!-- CSS mínimo: impede seleção/callout e bloqueia clique direto em imagens NÃO clicáveis -->
 <style>
-  /* NÃO bloqueia links/botões. Se alguma imagem for clicável, adicione data-clickable ao <img>. */
-  img:not([data-clickable]) { pointer-events: none; }
-  * { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+  /* Não bloqueia botões/links. Preserva toques/rolagem no mobile. */
+  * {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none; /* remove menu de toque longo no iOS/Android */
+  }
+  img:not([data-clickable]) {
+    -webkit-user-drag: none;
+    user-drag: none;
+  }
+  /* opcional: tira o highlight azul no toque (mobile) */
+  html, body { -webkit-tap-highlight-color: transparent; }
 </style>
+
 
 </body>
 </html>
