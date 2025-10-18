@@ -680,5 +680,57 @@
   </footer>
 
   <script src="js/app.js" defer></script>
+  
+ <!-- Anti-inspecionar / Anti-copiar (mitigação, não infalível) -->
+<script>
+(function () {
+  const stop = (e) => { e.preventDefault(); e.stopPropagation(); return false; };
+
+  // Bloqueia menu do botão direito e long-press (mobile)
+  window.addEventListener('contextmenu', stop, true);
+
+  // Bloqueia combos comuns: F12, Ctrl+U/S/P, Ctrl+Shift+I/J/C/K
+  window.addEventListener('keydown', function (e) {
+    const k = e.key;
+    const ctrl = e.ctrlKey || e.metaKey;
+    if (
+      k === 'F12' ||
+      (ctrl && ['u','s','p'].includes(k.toLowerCase())) ||
+      (ctrl && e.shiftKey && ['i','j','c','k'].includes(k.toLowerCase()))
+    ) stop(e);
+  }, true);
+
+  // Desabilita arrastar e clique longo em imagens (não afeta botões/link normais)
+  document.querySelectorAll('img:not([data-clickable])').forEach(img => {
+    img.setAttribute('draggable','false');
+    img.addEventListener('dragstart', stop, true);
+    img.addEventListener('mousedown', stop, true);
+    img.addEventListener('touchstart', stop, { capture:true, passive:false });
+  });
+
+  // Heurística simples: se DevTools abre (janela "estranha"), recarrega/limpa
+  // (comente esta parte se não quiser esse comportamento)
+  const guard = setInterval(() => {
+    const w = window.outerWidth - window.innerWidth > 160;
+    const h = window.outerHeight - window.innerHeight > 160;
+    if (w || h) {
+      // Opção 1: recarregar
+      // location.reload();
+      // Opção 2: redirecionar
+      // location.href = '/';
+      // Opção 3: "apagar" a página
+      document.documentElement.innerHTML = '';
+    }
+  }, 1000);
+})();
+</script>
+
+<!-- CSS mínimo: impede seleção/callout e bloqueia clique direto em imagens NÃO clicáveis -->
+<style>
+  /* NÃO bloqueia links/botões. Se alguma imagem for clicável, adicione data-clickable ao <img>. */
+  img:not([data-clickable]) { pointer-events: none; }
+  * { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+</style>
+
 </body>
 </html>
