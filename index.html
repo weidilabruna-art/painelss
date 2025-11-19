@@ -547,52 +547,66 @@ class="inline-block btn-brand btn-hero-adjusted rounded-md">
       </div>
     </section>
 
- <section id="bonus-recomendados" class="py-16 sm:py-20 px-4 bg-black text-center">
+ <!-- RECOMENDADA POR PERFIS VERIFICADOS -->
+<section id="bonus-recomendados"
+         class="py-16 sm:py-20 px-4 bg-[#221d08] border-y border-[#b9982a] text-center">
 
-    <h2 class="font-teko text-4xl sm:text-5xl font-bold uppercase text-white leading-tight mb-2">
-        RECOMENDADA POR <span class="text-[#FFC425]">PERFIS VERIFICADOS</span>
+  <div class="max-w-3xl mx-auto">
+    <h2 class="font-teko text-3xl sm:text-4xl md:text-5xl font-bold uppercase text-white leading-tight mb-2">
+      RECOMENDADA POR <span class="text-[#FFC425]">PERFIS VERIFICADOS</span>
     </h2>
-    <p class="text-gray-300 text-sm mb-8">
-        Alguns dos nomes do Free Fire que usam nosso xit
+    <p class="text-gray-200 text-sm sm:text-base mb-8">
+      Alguns dos nomes do Free Fire que usam nosso xit
     </p>
+  </div>
 
-    <div class="relative max-w-xs mx-auto">
+  <div class="relative max-w-xs mx-auto">
 
-        <!-- SLIDES -->
-        <div id="slider" class="overflow-hidden rounded-xl">
-            <div class="slide active">
-                <img src="images/marechal.png" class="w-full rounded-xl" alt="Marechal">
-                <p class="text-white font-semibold text-lg mt-2">Marechal</p>
-            </div>
+    <!-- SLIDES -->
+    <div id="slider" class="overflow-hidden rounded-xl">
+      <div class="slide active">
+        <img src="images/marechal.png" class="w-full rounded-xl" alt="Marechal">
+        <p class="text-white font-semibold text-lg mt-2">Marechal</p>
+      </div>
 
-            <div class="slide">
-                <img src="images/fantasma.png" class="w-full rounded-xl" alt="Fantasma">
-                <p class="text-white font-semibold text-lg mt-2">Fantasma</p>
-            </div>
+      <div class="slide">
+        <img src="images/fantasma.png" class="w-full rounded-xl" alt="Fantasma">
+        <p class="text-white font-semibold text-lg mt-2">Fantasma</p>
+      </div>
 
-            <div class="slide">
-                <img src="images/steike.png" class="w-full rounded-xl" alt="Steike">
-                <p class="text-white font-semibold text-lg mt-2">Steike</p>
-            </div>
-        </div>
-
-        <!-- SETA ESQUERDA -->
-        <button id="prev" class="absolute left-[-25px] top-1/2 -translate-y-1/2
-                                 bg-[#222] text-white w-9 h-9 rounded-full flex 
-                                 items-center justify-center hover:bg-[#333] transition">
-            <span style="font-size: 18px;">❮</span>
-        </button>
-
-        <!-- SETA DIREITA -->
-        <button id="next" class="absolute right-[-25px] top-1/2 -translate-y-1/2
-                                 bg-[#222] text-white w-9 h-9 rounded-full flex 
-                                 items-center justify-center hover:bg-[#333] transition">
-            <span style="font-size: 18px;">❯</span>
-        </button>
-
+      <div class="slide">
+        <img src="images/steike.png" class="w-full rounded-xl" alt="Steike">
+        <p class="text-white font-semibold text-lg mt-2">Steike</p>
+      </div>
     </div>
 
+    <!-- SETA ESQUERDA -->
+    <button id="prev"
+            class="absolute left-[-22px] top-1/2 -translate-y-1/2
+                   bg-black/60 text-white w-9 h-9 rounded-full flex 
+                   items-center justify-center hover:bg-black/80 transition">
+      <span class="text-lg">❮</span>
+    </button>
+
+    <!-- SETA DIREITA -->
+    <button id="next"
+            class="absolute right-[-22px] top-1/2 -translate-y-1/2
+                   bg-black/60 text-white w-9 h-9 rounded-full flex 
+                   items-center justify-center hover:bg-black/80 transition">
+      <span class="text-lg">❯</span>
+    </button>
+  </div>
+
+  <!-- BOTÃO IGUAL (ABAIXO DA IMAGEM) -->
+  <a href="#depoimentos"
+     class="mt-10 inline-flex items-center justify-center px-8 sm:px-10 py-3
+            bg-[#111827] hover:bg-[#1f2937] text-white font-semibold
+            rounded-md text-sm sm:text-base">
+    QUERO VER MAIS DEPOIMENTOS
+    <span class="ml-2">⬇️</span>
+  </a>
 </section>
+
 
 
 
@@ -914,6 +928,7 @@ document.getElementById("prev").onclick = () => {
 
 </body>
 </html>
+
 
 
 
