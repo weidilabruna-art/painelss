@@ -547,23 +547,67 @@ class="inline-block btn-brand btn-hero-adjusted rounded-md">
       </div>
     </section>
 
-    <!-- BÔNUS -->
-    <section id="bonus" class="py-12 bg-[rgba(255,222,9,.10)] border-y-2" style="border-color: rgba(255,222,9,.3);">
-      <div class="max-w-4xl mx-auto text-center px-4 reveal">
-        <p class="font-teko text-2xl text-yellow-300 uppercase tracking-widest">Bônus Exclusivo Hoje</p>
-        <h2 class="font-teko text-4xl sm:text-5xl font-bold text-white uppercase mt-2">
-          Compre Qualquer Plano e Leve um Pacote de Sensi Grátis!
-        </h2>
-        <p class="text-lg text-gray-300 max-w-2xl mx-auto mt-4">
-          Isso mesmo! Além de todas as funções do app, você ganha acesso a um pacote completo com as
-          <span class="font-bold text-white">melhores sensibilidades, métodos de puxada e configurações secretas</span> dos pro-players para você aplicar e encontrar a sua mira perfeita.
-        </p>
-        <a href="#feedback" class="mt-6 inline-block bg-gray-800 hover:bg-gray-700 text-white px-8 py-3 rounded-md text-lg font-bold shadow-lg transition-all duration-300 transform hover:scale-105">
-          QUERO MEU BÔNUS + VER DEPOIMENTOS
-          <i class="fa-solid fa-arrow-down ml-2"></i>
-        </a>
+   <!-- BÔNUS – CARROSSEL DE IMAGENS -->
+<section id="bonus" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-black border-y border-gray-900">
+  <div class="max-w-5xl mx-auto text-center reveal">
+    <p class="font-teko text-2xl text-brand uppercase tracking-widest mb-2">
+      BÔNUS EXCLUSIVO HOJE
+    </p>
+    <h2 class="font-teko text-4xl sm:text-5xl font-bold text-white uppercase mt-1">
+      COMPRE QUALQUER PLANO E LEVE UM PACOTE DE SENSI GRÁTIS!
+    </h2>
+    <p class="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto mt-4">
+      Além de todas as funções do app, você ganha um pacote extra com configurações prontas,
+      métodos de puxada e sensis usadas pelos jogadores mais brabos.
+    </p>
+  </div>
+
+  <!-- CARROSSEL DE IMAGENS (ESTILO FAIXA) -->
+  <div class="max-w-5xl mx-auto mt-10">
+    <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-2">
+      <!-- CARD 1 -->
+      <div class="min-w-[260px] snap-center bg-gray-900/70 border border-gray-800 rounded-2xl overflow-hidden">
+        <img src="images/bonus-1.png" alt="Bônus 1" class="w-full h-40 object-cover">
+        <div class="p-4 text-left">
+          <p class="text-sm font-semibold text-white">Acesso ilimitado ao app</p>
+          <p class="text-xs text-gray-400 mt-1">
+            Use o painel sem restrição, em qualquer horário.
+          </p>
+        </div>
       </div>
-    </section>
+
+      <!-- CARD 2 -->
+      <div class="min-w-[260px] snap-center bg-gray-900/70 border border-gray-800 rounded-2xl overflow-hidden">
+        <img src="images/bonus-2.png" alt="Bônus 2" class="w-full h-40 object-cover">
+        <div class="p-4 text-left">
+          <p class="text-sm font-semibold text-white">Pacote de sensi dos famosos</p>
+          <p class="text-xs text-gray-400 mt-1">
+            Copie as mesmas configs usadas pelos criadores que você acompanha.
+          </p>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="min-w-[260px] snap-center bg-gray-900/70 border border-gray-800 rounded-2xl overflow-hidden">
+        <img src="images/bonus-3.png" alt="Bônus 3" class="w-full h-40 object-cover">
+        <div class="p-4 text-left">
+          <p class="text-sm font-semibold text-white">Garantia de 7 dias</p>
+          <p class="text-xs text-gray-400 mt-1">
+            Teste sem medo: ou melhora sua mira, ou seu dinheiro volta.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTÃO LEVANDO PARA OS DEPOIMENTOS / PLANOS -->
+  <div class="max-w-5xl mx-auto text-center mt-10">
+    <a href="#feedback"
+       class="inline-block btn-brand px-8 sm:px-10 py-3 sm:py-4 rounded-md text-lg sm:text-xl">
+      QUERO MEU BÔNUS + VER DEPOIMENTOS
+    </a>
+  </div>
+</section>
 
     <!-- FEEDBACK -->
     <section id="feedback" class="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-black">
@@ -856,6 +900,7 @@ class="inline-block btn-brand btn-hero-adjusted rounded-md">
 
 </body>
 </html>
+
 
 
 
