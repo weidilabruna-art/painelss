@@ -169,10 +169,9 @@
 
         
         <!-- BOTÃO -->
-        <a href="#interactive-panel"
-        class="inline-block btn-brand px-8 sm:px-10 py-3 sm:py-4 rounded-md text-lg sm:text-xl">
-          VEJA COMO FUNCIONA
-        </a>
+       <a href="#interactive-panel" class="cta-pulse">
+  VEJA COMO FUNCIONA
+</a>
 
       </div>
     </div>
@@ -832,8 +831,46 @@
 </div>
 
 
+  /* BOTÃO MAIOR + PULSANDO (SEM ALTERAR MAIS NADA DO HERO) */
+.cta-pulse {
+  display: inline-block !important;
+  background: linear-gradient(180deg, #ffd300 0%, #f1b800 100%) !important;
+  color: #000 !important;
+  font-weight: 700 !important;
+  font-size: 1.25rem !important;      /* aumenta o tamanho do texto */
+  padding: 16px 40px !important;      /* aumenta o tamanho do botão */
+  border-radius: 10px !important;
+  text-align: center;
+  text-transform: uppercase;
+  box-shadow: 0 0 20px rgba(255, 213, 0, 0.55) !important;
+  transition: transform .2s ease, box-shadow .2s ease !important;
+  animation: pulseGlow 1.8s infinite ease-in-out;
+}
+
+.cta-pulse:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 26px rgba(255, 213, 0, 0.85);
+}
+
+@keyframes pulseGlow {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 18px rgba(255, 213, 0, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 26px rgba(255, 213, 0, 0.9);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 18px rgba(255, 213, 0, 0.4);
+  }
+}
+
+
 </body>
 </html>
+
 
 
 
