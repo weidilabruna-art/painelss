@@ -178,7 +178,6 @@
              transform:translateX(12px);  /* MAIS PARA A DIREITA */
          ">
 </div>
-
         
         <!-- BOTÃO -->
        <a href="#interactive-panel"
@@ -192,10 +191,7 @@ class="inline-block btn-brand btn-hero-adjusted rounded-md">
   </div>
 </section>
 
-
-
     
-
     <!-- PAINEL INTERATIVO -->
     <section id="interactive-panel" class="flex flex-col items-center justify-center pt-2 pb-16 sm:pt-4 sm:pb-20 px-4 sm:px-6 lg:px-8 bg-black">
       <div class="text-center mb-8 max-w-3xl mx-auto reveal">
@@ -617,61 +613,64 @@ class="inline-block btn-brand btn-hero-adjusted rounded-md">
           </p>
         </div>
 
-        <div class="relative">
-          <div class="overflow-hidden">
-            <div id="carousel-content" class="flex transition-transform duration-500 ease-in-out">
+        <div class="relative max-w-md mx-auto">
+  <!-- Área visível do carrossel -->
+  <div id="feedback-slider" class="overflow-hidden rounded-xl bg-black/60 border border-gray-800">
+    
+    <!-- SLIDE 1 -->
+    <div class="fb-slide p-4">
+      <img src="images/feedback1.png" class="w-full h-auto rounded-lg" alt="Feedback 1">
+    </div>
 
-  <!-- Slide 1 -->
-  <div class="flex-shrink-0 p-2" style="width: 50%">
-    <img src="images/feedback1.png" class="w-full h-auto rounded-lg" alt="Feedback 1">
+    <!-- SLIDE 2 -->
+    <div class="fb-slide p-4 hidden">
+      <img src="images/feedback2.png" class="w-full h-auto rounded-lg" alt="Feedback 2">
+    </div>
+
+    <!-- SLIDE 3 -->
+    <div class="fb-slide p-4 hidden">
+      <img src="images/feedback3.png" class="w-full h-auto rounded-lg" alt="Feedback 3">
+    </div>
+
+    <!-- SLIDE 4 -->
+    <div class="fb-slide p-4 hidden">
+      <img src="images/feedback4.png" class="w-full h-auto rounded-lg" alt="Feedback 4">
+    </div>
+
+    <!-- SLIDE 5 -->
+    <div class="fb-slide p-4 hidden">
+      <img src="images/feedback5.png" class="w-full h-auto rounded-lg" alt="Feedback 5">
+    </div>
+
+    <!-- SLIDE 6 -->
+    <div class="fb-slide p-4 hidden">
+      <img src="images/feedback6.png" class="w-full h-auto rounded-lg" alt="Feedback 6">
+    </div>
+
+    <!-- SLIDE 7 -->
+    <div class="fb-slide p-4 hidden">
+      <img src="images/feedback7.png" class="w-full h-auto rounded-lg" alt="Feedback 7">
+    </div>
+
+    <!-- SLIDE 8 -->
+    <div class="fb-slide p-4 hidden">
+      <img src="images/feedback8.png" class="w-full h-auto rounded-lg" alt="Feedback 8">
+    </div>
+
   </div>
 
-  <!-- Slide 2 -->
-  <div class="flex-shrink-0 p-2" style="width: 50%">
-    <img src="images/feedback2.png" class="w-full h-auto rounded-lg" alt="Feedback 2">
-  </div>
-
-  <!-- Slide 3 -->
-  <div class="flex-shrink-0 p-2" style="width: 50%">
-    <img src="images/feedback3.png" class="w-full h-auto rounded-lg" alt="Feedback 3">
-  </div>
-
-  <!-- Slide 4 -->
-  <div class="flex-shrink-0 p-2" style="width: 50%">
-    <img src="images/feedback4.png" class="w-full h-auto rounded-lg" alt="Feedback 4">
-  </div>
-
-  <!-- Slide 5 -->
-  <div class="flex-shrink-0 p-2" style="width: 50%">
-    <img src="images/feedback5.png" class="w-full h-auto rounded-lg" alt="Feedback 5">
-  </div>
-
-  <!-- Slide 6 -->
-  <div class="flex-shrink-0 p-2" style="width: 50%">
-    <img src="images/feedback6.png" class="w-full h-auto rounded-lg" alt="Feedback 6">
-  </div>
-
-  <!-- Slide 7 -->
-  <div class="flex-shrink-0 p-2" style="width: 50%">
-    <img src="images/feedback7.png" class="w-full h-auto rounded-lg" alt="Feedback 7">
-  </div>
-
-  <!-- Slide 8 -->
-  <div class="flex-shrink-0 p-2" style="width: 50%">
-    <img src="images/feedback8.png" class="w-full h-auto rounded-lg" alt="Feedback 8">
-  </div>
-
-  <!-- Slide 9 -->
-  <div class="flex-shrink-0 p-2" style="width: 50%">
-    <img src="images/feedback9.png" class="w-full h-auto rounded-lg" alt="Feedback 9">
-  </div>
-
-  <!-- Slide 10 -->
-  <div class="flex-shrink-0 p-2" style="width: 50%">
-    <img src="images/feedback10.png" class="w-full h-auto rounded-lg" alt="Feedback 10">
-  </div>
-
+  <!-- SETAS (mesmas que você já tinha) -->
+  <button id="prev-slide" class="absolute top-1/2 -left-4 md:-left-6 transform -translate-y-1/2 bg-gray-800/50 text-white p-3 rounded-full transition-all duration-300 z-10">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+  </button>
+  <button id="next-slide" class="absolute top-1/2 -right-4 md:-right-6 transform -translate-y-1/2 bg-gray-800/50 text-white p-3 rounded-full transition-all duration-300 z-10">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+  </button>
 </div>
+
+<!-- Pontinhos embaixo -->
+<div id="carousel-dots" class="mt-8 text-center flex justify-center space-x-2"></div>
+
 
           </div>
           <button id="prev-slide" class="absolute top-1/2 -left-4 md:-left-6 transform -translate-y-1/2 bg-gray-800/50 text-white p-3 rounded-full transition-all duration-300 z-10">
@@ -1038,11 +1037,58 @@ document.getElementById("prev").onclick = () => {
   }
 </style>
 
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const slides = document.querySelectorAll('.fb-slide');
+  const prevBtn = document.getElementById('prev-slide');
+  const nextBtn = document.getElementById('next-slide');
+  const dotsContainer = document.getElementById('carousel-dots');
+
+  if (!slides.length || !prevBtn || !nextBtn || !dotsContainer) return;
+
+  let current = 0;
+
+  // cria os pontinhos
+  slides.forEach((_, index) => {
+    const dot = document.createElement('button');
+    dot.className = 'w-2.5 h-2.5 rounded-full bg-gray-600';
+    if (index === 0) dot.classList.add('bg-brand');
+    dot.addEventListener('click', () => goToSlide(index));
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = dotsContainer.querySelectorAll('button');
+
+  function updateView() {
+    slides.forEach((slide, index) => {
+      slide.classList.toggle('hidden', index !== current);
+    });
+
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('bg-brand', index === current);
+      dot.classList.toggle('bg-gray-600', index !== current);
+    });
+  }
+
+  function goToSlide(index) {
+    const total = slides.length;
+    current = (index + total) % total;
+    updateView();
+  }
+
+  prevBtn.addEventListener('click', () => goToSlide(current - 1));
+  nextBtn.addEventListener('click', () => goToSlide(current + 1));
+
+  // inicia mostrando o primeiro
+  updateView();
+});
+</script>
 
 
 
 </body>
 </html>
+
 
 
 
