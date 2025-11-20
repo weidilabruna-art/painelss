@@ -144,12 +144,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const maxSlideIndex = Math.max(0, feedbackImages.length - slidesInView);
             if (currentSlide > maxSlideIndex) currentSlide = maxSlideIndex;
             if (currentSlide < 0) currentSlide = 0;
-            const slidesInView = getSlidesInView();
-const containerWidth = carouselContent.getBoundingClientRect().width;
-const itemWidth = containerWidth / slidesInView;
-const transformValue = -currentSlide * itemWidth;
-carouselContent.style.transform = `translateX(${transformValue}px)`;
-
+            const itemWidth = carouselContent.children[0].offsetWidth;
+            const transformValue = -currentSlide * itemWidth;
+            carouselContent.style.transform = `translateX(${transformValue}px)`;
             
             document.querySelectorAll(".carousel-dot").forEach((dot, index) => { 
                 dot.classList.toggle("bg-red-500", index === currentSlide);
@@ -183,9 +180,9 @@ carouselContent.style.transform = `translateX(${transformValue}px)`;
                 updateCarousel();
             }
         });
-       window.addEventListener("resize", updateCarousel);
-renderCarousel();
-setInterval(() => navigateCarousel(1), 5000);
+        window.addEventListener("resize", renderCarousel);
+        renderCarousel();
+        setInterval(() => navigateCarousel(1), 5000);
     };
 
     // Módulo do FAQ
