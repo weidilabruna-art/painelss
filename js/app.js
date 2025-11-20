@@ -1,28 +1,27 @@
-// 🔒 Bloqueia QUALQUER scroll automático executado via JS
-window.scrollTo = () => {};
-window.scrollBy = () => {};
-Element.prototype.scrollIntoView = () => {};
-
 document.addEventListener('DOMContentLoaded', function() {
     
     // Módulo de Utilitários e Efeitos Visuais
     const setupUtilitiesAndEffects = () => {
         // Lógica de Rolagem Suave
-        // Scroll suave DESATIVADO
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        // scroll desativado
-    });
-});
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetElement = document.querySelector(this.getAttribute('href'));
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
 
-
-        // Scroll Reveal DESATIVADO
-document.querySelectorAll('.reveal').forEach(el => {
-    el.classList.add('animate-fade-in'); // mostra tudo direto
-    el.classList.remove('reveal');       // remove efeito que encolhe
-});
-
+        // Lógica do Scroll Reveal
+        const observer = new IntersectionObserver((entries) => { 
+            entries.forEach(entry => { 
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            }); 
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
         
         // Lógica das Notificações de Compra
         if (window.Notiflix) { 
@@ -92,10 +91,9 @@ document.querySelectorAll('.reveal').forEach(el => {
                         vitalicioPlanCard.classList.add('border-yellow-400');
                         vitalicioPlanCard.style.boxShadow = '0 0 40px rgba(250, 204, 21, 0.5)';
                     }
-                   // Scroll automático DESATIVADO
-if(planosSection) {
-    // nada aqui
-}
+                    if(planosSection) {
+                        planosSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
                 }, 500);
             }
         };
