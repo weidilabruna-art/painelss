@@ -2,26 +2,23 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Módulo de Utilitários e Efeitos Visuais
     const setupUtilitiesAndEffects = () => {
-        // 🔴 Rolagem suave DESATIVADA (mantido só como comentário para não dar scroll automático)
-        /*
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetElement = document.querySelector(this.getAttribute('href'));
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-        */
+        // Lógica de Rolagem Suave
+        // Scroll suave DESATIVADO
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        // scroll desativado
+    });
+});
 
-        // Scroll Reveal DESATIVADO: já deixa tudo visível com a animação, sem depender de rolagem
-        document.querySelectorAll('.reveal').forEach(el => {
-            el.classList.add('animate-fade-in'); 
-            // se tiver classe que esconde (opacity-0/translate), pode remover aqui também
-            // ex: el.classList.remove('opacity-0', 'translate-y-4');
-        });
 
+        // Scroll Reveal DESATIVADO
+document.querySelectorAll('.reveal').forEach(el => {
+    el.classList.add('animate-fade-in'); // mostra tudo direto
+    el.classList.remove('reveal');       // remove efeito que encolhe
+});
+
+        
         // Lógica das Notificações de Compra
         if (window.Notiflix) { 
             setInterval(() => { 
@@ -90,10 +87,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         vitalicioPlanCard.classList.add('border-yellow-400');
                         vitalicioPlanCard.style.boxShadow = '0 0 40px rgba(250, 204, 21, 0.5)';
                     }
-                    // 🔴 Scroll automático DESATIVADO aqui:
-                    // if(planosSection) {
-                    //     planosSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    // }
+                   // Scroll automático DESATIVADO
+if(planosSection) {
+    // nada aqui
+}
                 }, 500);
             }
         };
@@ -106,8 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (taskElement) {
                 taskElement.classList.remove('text-gray-500');
                 taskElement.classList.add('text-green-400');
-                const icon = taskElement.querySelector('i');
-                if (icon) icon.classList.replace('far', 'fas');
+                taskElement.querySelector('i').classList.replace('far', 'fas');
             }
 
             let achievementText = '';
@@ -147,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (currentSlide < 0) currentSlide = 0;
             const itemWidth = carouselContent.children[0].offsetWidth;
             const transformValue = -currentSlide * itemWidth;
-            carouselContent.style.transform = `translateX(${transformValue}px)`; 
+            carouselContent.style.transform = `translateX(${transformValue}px)`;
             
             document.querySelectorAll(".carousel-dot").forEach((dot, index) => { 
                 dot.classList.toggle("bg-red-500", index === currentSlide);
@@ -158,15 +154,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const renderCarousel = () => { 
             const slidesInView = getSlidesInView();
             const slideWidthPercent = 100 / slidesInView; 
-            carouselContent.innerHTML = feedbackImages.map(src => `
-                <div class="flex-shrink-0 p-2" style="width: ${slideWidthPercent}%">
-                    <img src="${src}" class="w-full h-auto rounded-lg" loading="lazy" alt="Feedback de cliente" />
-                </div>
-            `).join("");
+            carouselContent.innerHTML = feedbackImages.map(src => `<div class="flex-shrink-0 p-2" style="width: ${slideWidthPercent}%"><img src="${src}" class="w-full h-auto rounded-lg" loading="lazy" alt="Feedback de cliente" /></div>`).join("");
             const numDots = Math.max(0, feedbackImages.length - slidesInView + 1);
-            dotsContainer.innerHTML = Array.from({ length: numDots }).map((_, index) => `
-                <button data-slide-to="${index}" class="carousel-dot w-2.5 h-2.5 rounded-full transition-colors duration-300"></button>
-            `).join("");
+            dotsContainer.innerHTML = Array.from({ length: numDots }).map((_, index) => `<button data-slide-to="${index}" class="carousel-dot w-2.5 h-2.5 rounded-full transition-colors duration-300"></button>`).join("");
             updateCarousel();
         };
 
@@ -196,35 +186,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const setupFAQ = () => {
         const faqContainer = document.getElementById('faq-container');
         if (!faqContainer) return;
-        const faqData = [
-            { question: "O aplicativo dá ban? É seguro?", answer: "Não. Nosso aplicativo é 100% seguro e funciona como uma ferramenta de otimização e sensibilidade, sem alterar os arquivos do jogo. Pode usar sem medo de banimento." },
-            { question: "Funciona em todos os celulares?", answer: "Sim, o Aplicativo Super Hax é compatível com todos os dispositivos Android e iOS. Após a compra, você recebe o acesso para instalar e configurar facilmente no seu celular." },
-            { question: "Como recebo o acesso após a compra?", answer: "A entrega é imediata. Assim que o pagamento for confirmado, você receberá um e-mail com o link para download do aplicativo e todas as instruções de instalação e uso." },
-            { question: "As funções são hacks?", answer: "Não. Nossas ferramentas usam tecnologia legal para simular a precisão de um jogador de elite, mas sem nenhum risco de ban, porque não modificam o jogo." },
-            { question: "Tenho garantia?", answer: "Sim! Oferecemos uma garantia de 7 dias. Se você não sentir uma melhora clara na sua jogabilidade ou não estiver satisfeito, devolvemos seu dinheiro." }
-        ];
+        const faqData = [{ question: "O aplicativo dá ban? É seguro?", answer: "Não. Nosso aplicativo é 100% seguro e funciona como uma ferramenta de otimização e sensibilidade, sem alterar os arquivos do jogo. Pode usar sem medo de banimento." }, { question: "Funciona em todos os celulares?", answer: "Sim, o Aplicativo Super Hax é compatível com todos os dispositivos Android e iOS. Após a compra, você recebe o acesso para instalar e configurar facilmente no seu celular." }, { question: "Como recebo o acesso após a compra?", answer: "A entrega é imediata. Assim que o pagamento for confirmado, você receberá um e-mail com o link para download do aplicativo e todas as instruções de instalação e uso." }, { question: "As funções são hacks?", answer: "Não. Nossas ferramentas usam tecnologia legal para simular a precisão de um jogador de elite, mas sem nenhum risco de ban, porque não modificam o jogo." }, { question: "Tenho garantia?", answer: "Sim! Oferecemos uma garantia de 7 dias. Se você não sentir uma melhora clara na sua jogabilidade ou não estiver satisfeito, devolvemos seu dinheiro." }];
         let openFaq = 0;
         
         const renderFaq = () => { 
-            faqContainer.innerHTML = faqData.map((e, t) => `
-                <div class="bg-gray-900 border border-gray-800 rounded-lg overflow-hidden transition-all duration-300 ${openFaq===t?"border-red-500/50":""}">
-                    <button data-faq-index="${t}" class="faq-toggle w-full flex justify-between items-center text-left p-6 cursor-pointer hover:bg-gray-800/50">
-                        <h4 class="font-semibold text-lg text-white pr-4">${e.question}</h4>
-                        <div class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-gray-800/50 rounded-full">
-                            <span class="text-red-500 transition-transform duration-300 ${openFaq===t?"rotate-180":""}">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="6 9 12 15 18 9"></polyline>
-                                </svg>
-                            </span>
-                        </div>
-                    </button>
-                    <div class="overflow-hidden transition-all duration-500 ease-in-out" style="max-height: ${openFaq===t?"200px":"0px"}">
-                        <div class="px-6 pb-6 pt-0">
-                            <p class="text-gray-400">${e.answer}</p>
-                        </div>
-                    </div>
-                </div>
-            `).join("");
+            faqContainer.innerHTML = faqData.map((e, t) => `<div class="bg-gray-900 border border-gray-800 rounded-lg overflow-hidden transition-all duration-300 ${openFaq===t?"border-red-500/50":""}"><button data-faq-index="${t}" class="faq-toggle w-full flex justify-between items-center text-left p-6 cursor-pointer hover:bg-gray-800/50"><h4 class="font-semibold text-lg text-white pr-4">${e.question}</h4><div class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-gray-800/50 rounded-full"><span class="text-red-500 transition-transform duration-300 ${openFaq===t?"rotate-180":""}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></span></div></button><div class="overflow-hidden transition-all duration-500 ease-in-out" style="max-height: ${openFaq===t?"200px":"0px"}"><div class="px-6 pb-6 pt-0"><p class="text-gray-400">${e.answer}</p></div></div></div>`).join("");
             document.querySelectorAll(".faq-toggle").forEach(btn => { 
                 btn.addEventListener("click", e => { 
                     const t = parseInt(e.currentTarget.dataset.faqIndex); 
@@ -295,9 +261,9 @@ document.addEventListener('DOMContentLoaded', function() {
             let totalSensi = 0;
             sensiSliders.forEach(slider => { totalSensi += parseInt(slider.value, 10) });
             currentPrecision += Math.max(0, Math.round((totalSensi / (sensiSliders.length || 1) - 100) / 10));
-            if(statLatency) statLatency.textContent = `${Math.max(17,currentLatency)}ms`;
-            if(statFps) statFps.textContent = Math.min(MAX_FPS, currentFps);
-            if(statPrecision) statPrecision.textContent = `+${currentPrecision}%`;
+            statLatency.textContent = `${Math.max(17,currentLatency)}ms`;
+            statFps.textContent = Math.min(MAX_FPS, currentFps);
+            statPrecision.textContent = `+${currentPrecision}%`;
             [statLatency, statFps, statPrecision].forEach(el => el.classList.add('text-green-400'));
         }
         
@@ -307,11 +273,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 const toggleBg = mainToggleBtn.querySelector('div.bg-gray-800');
                 isAppOn = !isAppOn;
                 if (isAppOn) {
-                    if(toggleSpan){
-                        toggleSpan.textContent = 'ON';
-                        toggleSpan.classList.remove('text-[#E53935]');
-                        toggleSpan.classList.add('text-green-500');
-                    }
+                    toggleSpan.textContent = 'ON';
+                    toggleSpan.classList.remove('text-[#E53935]');
+                    toggleSpan.classList.add('text-green-500');
                     if(toggleBg) toggleBg.classList.add('bg-[#E53935]');
                     if(floatingPanel) floatingPanel.style.display = 'block';
                     mainToggleBtn.classList.remove('pulse-attention');
@@ -319,11 +283,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     if(quickFunctions) quickFunctions.classList.remove('opacity-50', 'pointer-events-none');
                     window.completeTask('activated');
                 } else {
-                    if(toggleSpan){
-                        toggleSpan.textContent = 'OFF';
-                        toggleSpan.classList.add('text-[#E53935]');
-                        toggleSpan.classList.remove('text-green-500');
-                    }
+                    toggleSpan.textContent = 'OFF';
+                    toggleSpan.classList.add('text-[#E53935]');
+                    toggleSpan.classList.remove('text-green-500');
                     if(toggleBg) toggleBg.classList.remove('bg-[#E53935]');
                     if(floatingPanel) floatingPanel.style.display = 'none';
                     mainToggleBtn.classList.add('pulse-attention');
@@ -339,14 +301,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 const pageId = button.dataset.page;
                 navButtons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
-                panelPages.forEach(page => { 
-                    if(page) page.style.display = page.id === pageId ? 'block' : 'none'; 
-                });
+                panelPages.forEach(page => { if(page) page.style.display = page.id === pageId ? 'block' : 'none'; });
             });
         });
 
         sensiSliders.forEach(slider => {
-            const valueDisplay = slider.previousElementSibling?.querySelector('[data-sensi-value]');
+            const valueDisplay = slider.previousElementSibling.querySelector('[data-sensi-value]');
             slider.addEventListener('input', (event) => { 
                 if(valueDisplay) valueDisplay.textContent = event.target.value; 
                 updateDashboardStats(); 
@@ -391,11 +351,7 @@ document.addEventListener('DOMContentLoaded', function() {
             generateConfigButton.addEventListener('click', () => {
                 if(aiResultDiv) {
                     aiResultDiv.classList.remove('hidden');
-                    aiResultDiv.innerHTML = `
-                        <p class="text-yellow-400 text-center font-bold">
-                            Função indisponível na demonstração.<br>
-                            <span class="font-normal text-xs text-gray-300">Disponível apenas na versão completa.</span>
-                        </p>`;
+                    aiResultDiv.innerHTML = `<p class="text-yellow-400 text-center font-bold">Função indisponível na demonstração.<br><span class="font-normal text-xs text-gray-300">Disponível apenas na versão completa.</span></p>`;
                 }
             });
         }
