@@ -937,59 +937,57 @@ document.getElementById("prev").onclick = () => {
 </script>
 
 
+  <style>
+  /* 🔍 Deixar as provas sociais grandes e legíveis no mobile */
+  #feedback #carousel-content {
+    padding: 0 12px;
+    align-items: stretch;
+  }
+
+  /* Cada slide ocupa 100% da largura do celular */
+  #feedback #carousel-content > div {
+    min-width: 100%;
+    max-width: 100%;
+    padding: 14px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Print do Whats ocupa a largura toda do card */
+  #feedback #carousel-content img {
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 0.75rem;
+    display: block;
+  }
+
+  /* Texto um pouco maior pra leitura ficar boa */
+  #feedback #carousel-content p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  /* No desktop, limita pra não ficar gigante demais */
+  @media (min-width: 768px) {
+    #feedback #carousel-content > div {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+  }
+
+  /* Se em algum card eu tiver usado max-w-sm/w-72, força a expandir */
+  #feedback #carousel-content .max-w-sm {
+    max-width: 100% !important;
+  }
+  #feedback #carousel-content .w-72 {
+    width: 100% !important;
+  }
+</style>
+
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
