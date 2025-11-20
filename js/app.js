@@ -136,6 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const feedbackImages = ["https://i.imgur.com/NC8sgSy.png", "https://i.imgur.com/UajvZM1.png", "https://i.imgur.com/6LpvOAk.png", "https://i.imgur.com/Pd7spkl.png", "https://i.imgur.com/3GIql6p.png", "https://i.imgur.com/pRBfwHH.png", "https://i.imgur.com/jHHTrMH.png", "https://i.imgur.com/v7VueRe.png", "https://i.imgur.com/rWUmPO3.png", "https://i.imgur.com/66Z2P2J.png"];
         let currentSlide = 0;
         
+        const getSlidesInView = () => window.innerWidth >= 768 ? 3 : 2; 
 
         const updateCarousel = () => { 
             if (!carouselContent || carouselContent.children.length === 0) return; 
@@ -178,7 +179,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 currentSlide = parseInt(e.target.dataset.slideTo);
                 updateCarousel();
             }
-    
+        });
+        window.addEventListener("resize", renderCarousel);
+        renderCarousel();
+        setInterval(() => navigateCarousel(1), 5000);
+    };
 
     // Módulo do FAQ
     const setupFAQ = () => {
