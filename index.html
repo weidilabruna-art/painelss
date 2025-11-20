@@ -595,7 +595,7 @@ class="inline-block btn-brand btn-hero-adjusted rounded-md">
   </a>
 </section>
 
-    <!-- FEEDBACK -->
+   <!-- FEEDBACK -->
 <section id="feedback" class="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-black">
   <div class="absolute inset-0 z-0">
     <img src="https://i.imgur.com/b42e8755a1fd0f7ce699f70bf8b6030a.jpg" alt="Fundo de Feedback" class="w-full h-full object-cover opacity-10 ken-burns">
@@ -660,17 +660,17 @@ class="inline-block btn-brand btn-hero-adjusted rounded-md">
 
       </div>
 
-      <!-- SETAS (apenas UMA vez) -->
-      <button id="prev-slide" class="absolute top-1/2 -left-4 md:-left-6 transform -translate-y-1/2 bg-gray-800/50 text-white p-3 rounded-full transition-all duration-300 z-10">
+      <!-- 🚀 NOVAS SETAS (ids diferentes) -->
+      <button id="fb-prev" class="absolute top-1/2 -left-4 md:-left-6 transform -translate-y-1/2 bg-gray-800/50 text-white p-3 rounded-full transition-all duration-300 z-10">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
       </button>
-      <button id="next-slide" class="absolute top-1/2 -right-4 md:-right-6 transform -translate-y-1/2 bg-gray-800/50 text-white p-3 rounded-full transition-all duration-300 z-10">
+      <button id="fb-next" class="absolute top-1/2 -right-4 md:-right-6 transform -translate-y-1/2 bg-gray-800/50 text-white p-3 rounded-full transition-all duration-300 z-10">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
       </button>
     </div>
 
-    <!-- Pontinhos embaixo (APENAS UMA VEZ) -->
-    <div id="carousel-dots" class="mt-8 text-center flex justify-center space-x-2"></div>
+    <!-- Pontinhos embaixo -->
+    <div id="fb-dots" class="mt-8 text-center flex justify-center space-x-2"></div>
 
     <div class="text-center mt-12 reveal">
       <a href="#planos" class="inline-block btn-brand px-8 sm:px-10 py-3 sm:py-4 rounded-md text-lg sm:text-xl">
@@ -679,6 +679,7 @@ class="inline-block btn-brand btn-hero-adjusted rounded-md">
     </div>
   </div>
 </section>
+
 
 
         <!-- PLANOS -->
@@ -1027,12 +1028,15 @@ document.getElementById("prev").onclick = () => {
   }
 </style>
 
-<script>
+
+
+
+  <script>
 document.addEventListener('DOMContentLoaded', function () {
   const slides = document.querySelectorAll('.fb-slide');
-  const prevBtn = document.getElementById('prev-slide');
-  const nextBtn = document.getElementById('next-slide');
-  const dotsContainer = document.getElementById('carousel-dots');
+  const prevBtn = document.getElementById('fb-prev');
+  const nextBtn = document.getElementById('fb-next');
+  const dotsContainer = document.getElementById('fb-dots');
 
   if (!slides.length || !prevBtn || !nextBtn || !dotsContainer) return;
 
@@ -1062,23 +1066,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function goToSlide(index) {
     const total = slides.length;
-    current = (index + total) % total; // volta pro último/primeiro quando passa dos limites
+    current = (index + total) % total; // loop infinito
     updateView();
   }
 
   prevBtn.addEventListener('click', () => goToSlide(current - 1));
   nextBtn.addEventListener('click', () => goToSlide(current + 1));
 
-  // inicia certo
+  // inicia certinho
   updateView();
 });
 </script>
 
 
-
-
 </body>
 </html>
+
 
 
 
