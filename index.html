@@ -598,7 +598,9 @@ class="inline-block btn-brand btn-hero-adjusted rounded-md">
    <!-- FEEDBACK -->
 <section id="feedback" class="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-black">
   <div class="absolute inset-0 z-0">
-    <img src="https://i.imgur.com/b42e8755a1fd0f7ce699f70bf8b6030a.jpg" alt="Fundo de Feedback" class="w-full h-full object-cover opacity-10 ken-burns">
+    <img src="https://i.imgur.com/b42e8755a1fd0f7ce699f70bf8b6030a.jpg"
+         alt="Fundo de Feedback"
+         class="w-full h-full object-cover opacity-10 ken-burns">
     <div class="absolute inset-0 bg-black/80"></div>
   </div>
 
@@ -613,50 +615,58 @@ class="inline-block btn-brand btn-hero-adjusted rounded-md">
       </p>
     </div>
 
-    <!-- CARROSSEL -->
-    <div class="relative max-w-md mx-auto">
-      <!-- Área visível do carrossel -->
+    <div class="relative max-w-xs mx-auto">
+      <!-- SLIDES -->
       <div id="feedback-slider" class="overflow-hidden rounded-xl bg-black/60 border border-gray-800">
-        
-         <!-- SLIDES -->
-    <div id="slider" class="overflow-hidden rounded-xl">
-      <div class="slide active">
-        <img src="images/player-4.jpeg" class="w-full rounded-xl" alt="Marechal">
-        <p class="text-white font-semibold text-lg mt-2">Marechal</p>
+        <div class="fb-slide-js active">
+          <img src="images/feedback1.png" class="w-full rounded-xl" alt="Feedback 1">
+        </div>
+
+        <div class="fb-slide-js">
+          <img src="images/feedback2.png" class="w-full rounded-xl" alt="Feedback 2">
+        </div>
+
+        <div class="fb-slide-js">
+          <img src="images/feedback3.png" class="w-full rounded-xl" alt="Feedback 3">
+        </div>
+
+        <div class="fb-slide-js">
+          <img src="images/feedback4.png" class="w-full rounded-xl" alt="Feedback 4">
+        </div>
+
+        <div class="fb-slide-js">
+          <img src="images/feedback5.png" class="w-full rounded-xl" alt="Feedback 5">
+        </div>
+
+        <div class="fb-slide-js">
+          <img src="images/feedback6.png" class="w-full rounded-xl" alt="Feedback 6">
+        </div>
+
+        <div class="fb-slide-js">
+          <img src="images/feedback7.png" class="w-full rounded-xl" alt="Feedback 7">
+        </div>
+
+        <div class="fb-slide-js">
+          <img src="images/feedback8.png" class="w-full rounded-xl" alt="Feedback 8">
+        </div>
       </div>
 
-      <div class="slide">
-        <img src="images/player-3.jpeg" class="w-full rounded-xl" alt="Fantasma">
-        <p class="text-white font-semibold text-lg mt-2">Fantasma</p>
-      </div>
+      <!-- SETA ESQUERDA -->
+      <button id="fb-prev"
+              class="absolute left-[-22px] top-1/2 -translate-y-1/2
+                     bg-black/60 text-white w-9 h-9 rounded-full flex 
+                     items-center justify-center hover:bg-black/80 transition">
+        <span class="text-lg">❮</span>
+      </button>
 
-      <div class="slide">
-        <img src="images/player-2.jpeg" class="w-full rounded-xl" alt="Steike">
-        <p class="text-white font-semibold text-lg mt-2">Steike</p>
-      </div>
+      <!-- SETA DIREITA -->
+      <button id="fb-next"
+              class="absolute right-[-22px] top-1/2 -translate-y-1/2
+                     bg-black/60 text-white w-9 h-9 rounded-full flex 
+                     items-center justify-center hover:bg-black/80 transition">
+        <span class="text-lg">❯</span>
+      </button>
     </div>
-
-    <!-- SETA ESQUERDA -->
-    <button id="prev"
-            class="absolute left-[-22px] top-1/2 -translate-y-1/2
-                   bg-black/60 text-white w-9 h-9 rounded-full flex 
-                   items-center justify-center hover:bg-black/80 transition">
-      <span class="text-lg">❮</span>
-    </button>
-
-    <!-- SETA DIREITA -->
-    <button id="next"
-            class="absolute right-[-22px] top-1/2 -translate-y-1/2
-                   bg-black/60 text-white w-9 h-9 rounded-full flex 
-                   items-center justify-center hover:bg-black/80 transition">
-      <span class="text-lg">❯</span>
-    </button>
-  </div>
-  </a>
-</section>
-
-    <!-- Pontinhos embaixo -->
-    <div id="fb-dots" class="mt-8 text-center flex justify-center space-x-2"></div>
 
     <div class="text-center mt-12 reveal">
       <a href="#planos" class="inline-block btn-brand px-8 sm:px-10 py-3 sm:py-4 rounded-md text-lg sm:text-xl">
@@ -665,6 +675,7 @@ class="inline-block btn-brand btn-hero-adjusted rounded-md">
     </div>
   </div>
 </section>
+
 
 
 
@@ -1017,56 +1028,12 @@ document.getElementById("prev").onclick = () => {
 
 
 
-  <script>
-document.addEventListener('DOMContentLoaded', function () {
-  const slides = document.querySelectorAll('.fb-slide');
-  const prevBtn = document.getElementById('fb-prev');
-  const nextBtn = document.getElementById('fb-next');
-  const dotsContainer = document.getElementById('fb-dots');
 
-  if (!slides.length || !prevBtn || !nextBtn || !dotsContainer) return;
-
-  let current = 0;
-
-  // cria os pontinhos
-  slides.forEach((_, index) => {
-    const dot = document.createElement('button');
-    dot.className = 'w-2.5 h-2.5 rounded-full bg-gray-600';
-    if (index === 0) dot.classList.add('bg-brand');
-    dot.addEventListener('click', () => goToSlide(index));
-    dotsContainer.appendChild(dot);
-  });
-
-  const dots = dotsContainer.querySelectorAll('button');
-
-  function updateView() {
-    slides.forEach((slide, index) => {
-      slide.classList.toggle('hidden', index !== current);
-    });
-
-    dots.forEach((dot, index) => {
-      dot.classList.toggle('bg-brand', index === current);
-      dot.classList.toggle('bg-gray-600', index !== current);
-    });
-  }
-
-  function goToSlide(index) {
-    const total = slides.length;
-    current = (index + total) % total; // loop infinito
-    updateView();
-  }
-
-  prevBtn.addEventListener('click', () => goToSlide(current - 1));
-  nextBtn.addEventListener('click', () => goToSlide(current + 1));
-
-  // inicia certinho
-  updateView();
-});
-</script>
 
 
 </body>
 </html>
+
 
 
 
