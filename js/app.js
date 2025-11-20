@@ -380,4 +380,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-
+    // --- INICIALIZAÇÃO DE TODOS OS MÓDULOS ---
+    setupUtilitiesAndEffects();
+    setupGamification();
+    setupCarousel();
+    setupFAQ();
+    setupTracking();
+    setupAppSimulator();
+});
