@@ -3,22 +3,25 @@ document.addEventListener('DOMContentLoaded', function() {
     // Módulo de Utilitários e Efeitos Visuais
     const setupUtilitiesAndEffects = () => {
         // Lógica de Rolagem Suave
-        // Scroll suave desativado
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault(); 
-        // desativado – não faz nada
-        return;
-    });
-});
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetElement = document.querySelector(this.getAttribute('href'));
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
 
-
-        // LÓGICA DO SCROLL REVEAL DESATIVADA
-// Já aplica a animação (ou apenas remove o "escondido") em todos os elementos .reveal
-document.querySelectorAll('.reveal').forEach(el => {
-    el.classList.add('animate-fade-in'); // ou remova classes de opacity-0/translate, se tiver
-});
-
+        // Lógica do Scroll Reveal
+        const observer = new IntersectionObserver((entries) => { 
+            entries.forEach(entry => { 
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            }); 
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
         
         // Lógica das Notificações de Compra
         if (window.Notiflix) { 
@@ -88,10 +91,10 @@ document.querySelectorAll('.reveal').forEach(el => {
                         vitalicioPlanCard.classList.add('border-yellow-400');
                         vitalicioPlanCard.style.boxShadow = '0 0 40px rgba(250, 204, 21, 0.5)';
                     }
-                   // Scroll automático desativado
-if(planosSection) {
-    void 0; // Não faz nada
-}
+                    if(planosSection) {
+                        planosSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }, 500);
             }
         };
 
