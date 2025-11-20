@@ -3,15 +3,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Módulo de Utilitários e Efeitos Visuais
     const setupUtilitiesAndEffects = () => {
         // Lógica de Rolagem Suave
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetElement = document.querySelector(this.getAttribute('href'));
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
+        // Scroll suave desativado
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault(); 
+        // desativado – não faz nada
+        return;
+    });
+});
+
 
         // LÓGICA DO SCROLL REVEAL DESATIVADA
 // Já aplica a animação (ou apenas remove o "escondido") em todos os elementos .reveal
@@ -88,10 +88,10 @@ document.querySelectorAll('.reveal').forEach(el => {
                         vitalicioPlanCard.classList.add('border-yellow-400');
                         vitalicioPlanCard.style.boxShadow = '0 0 40px rgba(250, 204, 21, 0.5)';
                     }
-                    if(planosSection) {
-                        planosSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    }
-                }, 500);
+                   // Scroll automático desativado
+if(planosSection) {
+    void 0; // Não faz nada
+}
             }
         };
 
