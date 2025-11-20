@@ -388,3 +388,32 @@ document.addEventListener('DOMContentLoaded', function() {
     setupTracking();
     setupAppSimulator();
 });
+
+
+<style>
+/* Impede o carrossel de encolher quando aparece */
+#carousel-content,
+#carousel-content > div {
+    transform: none !important;
+    transition: none !important;
+}
+
+/* Impede recalcular tamanho ao entrar na tela */
+#feedback .reveal,
+#planos .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+}
+
+/* Trava largura dos itens do carrossel */
+#carousel-content > div {
+    min-width: 50% !important; /* no mobile */
+}
+
+@media (min-width: 768px) {
+    #carousel-content > div {
+        min-width: 33.3333% !important; /* no desktop */
+    }
+}
+</style>
