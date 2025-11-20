@@ -13,16 +13,12 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // Lógica do Scroll Reveal
-        const observer = new IntersectionObserver((entries) => { 
-            entries.forEach(entry => { 
-                if(entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-in');
-                }
-            }); 
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-        
+       // LÓGICA DO SCROLL REVEAL DESATIVADA
+// Já aplica a animação (ou apenas remove o "escondido") em todos os elementos .reveal
+document.querySelectorAll('.reveal').forEach(el => {
+    el.classList.add('animate-fade-in'); // ou remova classes de opacity-0/translate, se tiver
+});
+
         // Lógica das Notificações de Compra
         if (window.Notiflix) { 
             setInterval(() => { 
