@@ -10,6 +10,18 @@
   <link rel="stylesheet" href="css/all.min.css"/>
   <link rel="stylesheet" href="css/style.css"/>
 
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<style>
+  html, body {
+    touch-action: pan-x pan-y;
+    -ms-touch-action: pan-x pan-y; /* IE/Edge antigo */
+    overscroll-behavior: none;
+  }
+</style>
+
   <!-- Tema AMARELO + Overrides de "vermelho" -->
   <style>
     :root { --brand-yellow: #FFDE09; }
@@ -139,26 +151,32 @@
   </p>
 </div>
 
-    <!-- 🔥 VÍDEO (ANTES DO BOTÃO) -->
-    <div class="elementor-element elementor-element-87cea96 elementor-widget elementor-widget-html"
+   <!-- 🔥 VÍDEO (ANTES DO BOTÃO) -->
+<div class="elementor-element elementor-element-87cea96 elementor-widget elementor-widget-html"
      data-id="87cea96" data-element_type="widget" data-widget_type="html.default">
-      <div class="elementor-widget-container">
+  <div class="elementor-widget-container">
 
-        <div class="mvd-video-wrap mb-8">
-          <div class="mvd-video-box">
-            <vturb-smartplayer id="vid-68fadf324d438abf9f981ef4"
-              style="display:block;margin:0 auto;width:100%;max-width:400px;">
-            </vturb-smartplayer>
-          </div>
+    <div class="mvd-video-wrap mb-8">
+      <div class="mvd-video-box">
+
+        <!-- 🎥 Panda Video Player -->
+        <div style="position:relative;padding-top:56.25%;">
+          <iframe id="panda-7e4dc7d6-5a5a-4840-9d50-0069454b3610"
+                  src="https://player-vz-3b3d6663-177.tv.pandavideo.com.br/embed/?v=7e4dc7d6-5a5a-4840-9d50-0069454b3610"
+                  style="border:none;position:absolute;top:0;left:0;width:100%;height:100%;"
+                  allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
+                  allowfullscreen="true"
+                  fetchpriority="high">
+          </iframe>
         </div>
 
-        <script type="text/javascript">
-          var s = document.createElement("script");
-          s.src = "https://scripts.converteai.net/dd1051f9-ff3d-45fc-9ba7-088d9c3f5a0c/players/68fadf324d438abf9f981ef4/v4/player.js";
-          s.async = true;
-          document.head.appendChild(s);
-        </script>
-        <!-- 🔥 FIM DO VÍDEO -->
+      </div>
+    </div>
+
+    <!-- 🔥 FIM DO VÍDEO -->
+  </div>
+</div>
+
 
 <!-- BENEFÍCIOS (IMAGEM ÚNICA) -->
 <div style="
@@ -599,98 +617,92 @@ class="inline-block btn-brand btn-hero-adjusted rounded-md">
   </a>
 </section>
 
-    <!-- FEEDBACK -->
-    <section id="feedback" class="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-black">
-      <div class="absolute inset-0 z-0">
-        <img src="https://i.imgur.com/b42e8755a1fd0f7ce699f70bf8b6030a.jpg" alt="Fundo de Feedback" class="w-full h-full object-cover opacity-10 ken-burns">
-        <div class="absolute inset-0 bg-black/80"></div>
+  <!-- FEEDBACK -->
+<section id="feedback" class="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-black">
+  <div class="absolute inset-0 z-0">
+    <img src="https://i.imgur.com/b42e8755a1fd0f7ce699f70bf8b6030a.jpg" alt="Fundo de Feedback" class="w-full h-full object-cover opacity-10 ken-burns">
+    <div class="absolute inset-0 bg-black/80"></div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto z-10 reveal">
+    <div class="text-center mb-12 sm:mb-16">
+      <p class="font-teko text-2xl text-brand mb-2 uppercase tracking-widest">A Tropa Não Mente</p>
+      <h2 class="font-teko text-4xl sm:text-5xl md:text-6xl font-bold text-white uppercase">
+        Resultados Reais, Jogadores Reais
+      </h2>
+      <p class="text-lg text-gray-400 max-w-3xl mx-auto mt-4">
+        Se liga no que a galera tá falando depois de instalar o app. O resultado é na hora, sem enrolação.
+      </p>
+    </div>
+
+    <!-- CARROSSEL -->
+    <div class="relative max-w-md mx-auto">
+      <!-- Área visível do carrossel -->
+      <div id="feedback-slider" class="overflow-hidden rounded-xl bg-black/60 border border-gray-800">
+        
+        <!-- SLIDE 1 -->
+        <div class="fb-slide p-4">
+          <img src="images/WhatsApp Image 2025-09-08 at 19.53.29 (1)_1759601757632-DZCAp5yE.webp" class="w-full h-auto rounded-lg" alt="Feedback 1">
+        </div>
+
+        <!-- SLIDE 2 -->
+        <div class="fb-slide p-4 hidden">
+          <img src="images/WhatsApp Image 2025-09-08 at 19.53.29_1759601757632-DFVwVJeq.webp" class="w-full h-auto rounded-lg" alt="Feedback 2">
+        </div>
+
+        <!-- SLIDE 3 -->
+        <div class="fb-slide p-4 hidden">
+          <img src="images/feedback3.png" class="w-full h-auto rounded-lg" alt="Feedback 3">
+        </div>
+
+        <!-- SLIDE 4 -->
+        <div class="fb-slide p-4 hidden">
+          <img src="images/feedback4.png" class="w-full h-auto rounded-lg" alt="Feedback 4">
+        </div>
+
+        <!-- SLIDE 5 -->
+        <div class="fb-slide p-4 hidden">
+          <img src="images/feedback5.png" class="w-full h-auto rounded-lg" alt="Feedback 5">
+        </div>
+
+        <!-- SLIDE 6 -->
+        <div class="fb-slide p-4 hidden">
+          <img src="images/feedback6.png" class="w-full h-auto rounded-lg" alt="Feedback 6">
+        </div>
+
+        <!-- SLIDE 7 -->
+        <div class="fb-slide p-4 hidden">
+          <img src="images/feedback7.png" class="w-full h-auto rounded-lg" alt="Feedback 7">
+        </div>
+
+        <!-- SLIDE 8 -->
+        <div class="fb-slide p-4 hidden">
+          <img src="images/feedback8.png" class="w-full h-auto rounded-lg" alt="Feedback 8">
+        </div>
+
       </div>
 
-      <div class="relative max-w-7xl mx-auto z-10 reveal">
-        <div class="text-center mb-12 sm:mb-16">
-          <p class="font-teko text-2xl text-brand mb-2 uppercase tracking-widest">A Tropa Não Mente</p>
-          <h2 class="font-teko text-4xl sm:text-5xl md:text-6xl font-bold text-white uppercase">
-            Resultados Reais, Jogadores Reais
-          </h2>
-          <p class="text-lg text-gray-400 max-w-3xl mx-auto mt-4">
-            Se liga no que a galera tá falando depois de instalar o app. O resultado é na hora, sem enrolação.
-          </p>
-        </div>
+      <!-- SETAS (apenas UMA vez) -->
+      <button id="prev-slide" class="absolute top-1/2 -left-4 md:-left-6 transform -translate-y-1/2 bg-gray-800/50 text-white p-3 rounded-full transition-all duration-300 z-10">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <button id="next-slide" class="absolute top-1/2 -right-4 md:-right-6 transform -translate-y-1/2 bg-gray-800/50 text-white p-3 rounded-full transition-all duration-300 z-10">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+    </div>
 
-        <div class="relative">
-          <div class="overflow-hidden">
-            <div id="carousel-content" class="flex transition-transform duration-500 ease-in-out">
+    <!-- Pontinhos embaixo (APENAS UMA VEZ) -->
+    <div id="carousel-dots" class="mt-8 text-center flex justify-center space-x-2"></div>
 
-  <!-- Slide 1 -->
-  <div class="flex-shrink-0 p-2" style="width: 50%">
-    <img src="images/feedback1.png" class="w-full h-auto rounded-lg" alt="Feedback 1">
+    <div class="text-center mt-12 reveal">
+      <a href="#planos" class="inline-block btn-brand px-8 sm:px-10 py-3 sm:py-4 rounded-md text-lg sm:text-xl">
+        ESTOU PRONTO PARA DOMINAR
+      </a>
+    </div>
   </div>
+</section>
 
-  <!-- Slide 2 -->
-  <div class="flex-shrink-0 p-2" style="width: 50%">
-    <img src="images/feedback2.png" class="w-full h-auto rounded-lg" alt="Feedback 2">
-  </div>
 
-  <!-- Slide 3 -->
-  <div class="flex-shrink-0 p-2" style="width: 50%">
-    <img src="images/feedback3.png" class="w-full h-auto rounded-lg" alt="Feedback 3">
-  </div>
-
-  <!-- Slide 4 -->
-  <div class="flex-shrink-0 p-2" style="width: 50%">
-    <img src="images/feedback4.png" class="w-full h-auto rounded-lg" alt="Feedback 4">
-  </div>
-
-  <!-- Slide 5 -->
-  <div class="flex-shrink-0 p-2" style="width: 50%">
-    <img src="images/feedback5.png" class="w-full h-auto rounded-lg" alt="Feedback 5">
-  </div>
-
-  <!-- Slide 6 -->
-  <div class="flex-shrink-0 p-2" style="width: 50%">
-    <img src="images/feedback6.png" class="w-full h-auto rounded-lg" alt="Feedback 6">
-  </div>
-
-  <!-- Slide 7 -->
-  <div class="flex-shrink-0 p-2" style="width: 50%">
-    <img src="images/feedback7.png" class="w-full h-auto rounded-lg" alt="Feedback 7">
-  </div>
-
-  <!-- Slide 8 -->
-  <div class="flex-shrink-0 p-2" style="width: 50%">
-    <img src="images/feedback8.png" class="w-full h-auto rounded-lg" alt="Feedback 8">
-  </div>
-
-  <!-- Slide 9 -->
-  <div class="flex-shrink-0 p-2" style="width: 50%">
-    <img src="images/feedback9.png" class="w-full h-auto rounded-lg" alt="Feedback 9">
-  </div>
-
-  <!-- Slide 10 -->
-  <div class="flex-shrink-0 p-2" style="width: 50%">
-    <img src="images/feedback10.png" class="w-full h-auto rounded-lg" alt="Feedback 10">
-  </div>
-
-</div>
-
-          </div>
-          <button id="prev-slide" class="absolute top-1/2 -left-4 md:-left-6 transform -translate-y-1/2 bg-gray-800/50 text-white p-3 rounded-full transition-all duration-300 z-10">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
-          </button>
-          <button id="next-slide" class="absolute top-1/2 -right-4 md:-right-6 transform -translate-y-1/2 bg-gray-800/50 text-white p-3 rounded-full transition-all duration-300 z-10">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-          </button>
-        </div>
-
-        <div id="carousel-dots" class="mt-8 text-center flex justify-center space-x-2"></div>
-
-        <div class="text-center mt-12 reveal">
-          <a href="#planos" class="inline-block btn-brand px-8 sm:px-10 py-3 sm:py-4 rounded-md text-lg sm:text-xl">
-            ESTOU PRONTO PARA DOMINAR
-          </a>
-        </div>
-      </div>
-    </section>
 
         <!-- PLANOS -->
     <section id="planos" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-black">
@@ -1039,13 +1051,57 @@ document.getElementById("prev").onclick = () => {
 </style>
 
 
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const slides = document.querySelectorAll('.fb-slide');
+  const prevBtn = document.getElementById('prev-slide');
+  const nextBtn = document.getElementById('next-slide');
+  const dotsContainer = document.getElementById('carousel-dots');
+
+  if (!slides.length || !prevBtn || !nextBtn || !dotsContainer) return;
+
+  let current = 0;
+
+  // cria os pontinhos
+  slides.forEach((_, index) => {
+    const dot = document.createElement('button');
+    dot.className = 'w-2.5 h-2.5 rounded-full bg-gray-600';
+    if (index === 0) dot.classList.add('bg-brand');
+    dot.addEventListener('click', () => goToSlide(index));
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = dotsContainer.querySelectorAll('button');
+
+  function updateView() {
+    slides.forEach((slide, index) => {
+      slide.classList.toggle('hidden', index !== current);
+    });
+
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('bg-brand', index === current);
+      dot.classList.toggle('bg-gray-600', index !== current);
+    });
+  }
+
+  function goToSlide(index) {
+    const total = slides.length;
+    current = (index + total) % total; // volta pro último/primeiro quando passa dos limites
+    updateView();
+  }
+
+  prevBtn.addEventListener('click', () => goToSlide(current - 1));
+  nextBtn.addEventListener('click', () => goToSlide(current + 1));
+
+  // inicia certo
+  updateView();
+});
+</script>
+
 
 
 </body>
 </html>
-
-
-
 
 
 
