@@ -1,3 +1,8 @@
+// 🔒 Bloqueia QUALQUER scroll automático executado via JS
+window.scrollTo = () => {};
+window.scrollBy = () => {};
+Element.prototype.scrollIntoView = () => {};
+
 document.addEventListener('DOMContentLoaded', function() {
     
     // Módulo de Utilitários e Efeitos Visuais
